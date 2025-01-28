@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Capture.css'
 
- import { IoCloudUploadOutline } from "react-icons/io5";
+import { IoCloudUploadOutline } from "react-icons/io5";
 
 import './Captcha.css'
 import axios from 'axios'
@@ -51,7 +51,6 @@ function Capture() {
 
 
   return (
-    //onClick={() => document.querySelector(".img").click()}
     <form action="" className='capture' id='form' onSubmit={handlesubmit} onClick={(e) => {
         if (e.target.id != "btn"){
             document.querySelector(".img").click();
@@ -63,15 +62,12 @@ function Capture() {
             (<img src={`./backend/test/${datafile.filename}`} style={{ width: '350px', height: '200px' }} alt="Image" />
             )
             :
-             (<IoCloudUploadOutline size = {80} />)
+            (<IoCloudUploadOutline size = {150} />)
         }
         
 
         <div className="load">
-
-       
             <h1 key={key} className='terminal'>{datafile.captcha}  </h1>
-     
         </div>
 
         <button id='btn' type="submit">.Upload</button>

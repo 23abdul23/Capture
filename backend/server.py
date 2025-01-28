@@ -5,13 +5,14 @@ from functions import *
 import os
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
+curr_dir = os.getcwd()
 
 
 app =Flask(__name__)
 
 CORS(app, resources={r"/api/captcha": {"origins": "http://localhost:5173"}}, supports_credentials=True)
 
-working_dir = r"/Users/adithnr/Documents/GitHub/Capture"
+working_dir = curr_dir
 
 
 
@@ -26,7 +27,7 @@ def captcha():
              return jsonify({"Filename not Received"})
         else:    
             characters = '123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-            img_path = os.path.join(r"/Users/adithnr/Documents/GitHub/Capture/backend", "test", filename)
+            img_path = os.path.join(working_dir, "test", filename)
             predicted_classes = predict_test_image(img_path, num_characters=5)
             captcha = "".join([characters[i] for i in predicted_classes])
 

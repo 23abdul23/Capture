@@ -16,9 +16,9 @@ function App() {
         <section id='home'> <HeroSec/></section>
         <section id='about'><AboutSec/></section>
         <section id='model'><ModelSpec/></section>
-       
-        <section id='capture'><Capture/></section>
-        <Footer/>
+        <section id='capture'><Capture/>
+        <Footer/></section>
+        
       </div>
   )
 }
