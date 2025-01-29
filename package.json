@@ -1,8 +1,8 @@
 {
+  "homepage": "https://23abdul23.github.io/Capture/",
   "name": "capture",
   "private": true,
   "proxy": "http://localhost:5000/",
-  "homepage": "https://23abdul23.github.io/Capture",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

@@ -16,22 +16,6 @@ def enhance(image):
     return thresh
 
 
-def draw_lines(image):
-    length = image.shape[0]
-    temp_img = image.copy()  # Create a copy to avoid modifying the original image
-    line_color = (0, 0, 255)  # Red in BGR
-    line_thickness = 1
-
-    image_width = image.shape[1]
-    num_sections = 5
-    line_positions = [int(i * (image_width / num_sections)) for i in range(1, num_sections)]
-
-    for x in line_positions:
-        start_point = (x, 0)  # Top of the image
-        end_point = (x, length)  # Bottom of the image
-        cv2.line(temp_img, start_point, end_point, line_color, line_thickness)
-
-    return temp_img
 
 def crop_image(original_image):
     batch_size = 7
@@ -72,29 +56,6 @@ def crop_image(original_image):
         return None
 
     return resized_image
-
-def resize_image(source_dir, size):
-
-  chars = os.listdir(source_dir)
-
-
-  for char in chars:
-      char_dir = os.path.join(source_dir, char)
-
-
-      images = os.listdir(char_dir)
-
-      for img in (images):
-          img_path = os.path.join(char_dir, img)
-
-          image = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
-
-          if image is None:
-              print(f"Skipping invalid image: {img_path}")
-              continue
-
-          resized = cv2.resize(image, size)  # Resize the image
-          cv2.imwrite(img_path, resized)  # Overwrite the original image
 
 def characters_splitting(image):
 
